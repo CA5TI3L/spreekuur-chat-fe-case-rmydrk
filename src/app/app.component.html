@@ -1,18 +1,4 @@
-<h1>De Geweldige Spreekuur Chat</h1>
-
-<h3>Gesprekken</h3>
-<div *ngFor="let gesprek of gesprekken$ | async">
-  <p>
-    {{ gesprek.id }}
-    {{ gesprek.onderwerp }}
-  </p>
-</div>
-
-<h3>Berichten</h3>
-<div *ngFor="let bericht of berichten$ | async">
-  <p>
-    Gesprek: {{ bericht.gesprekId }}
-    {{ bericht.inhoud }}
-    Afzender: {{ bericht.afzenderId }}
-  </p>
+<div class="main-container">
+    <app-gesprekken></app-gesprekken>
+    <app-berichten></app-berichten>
 </div>

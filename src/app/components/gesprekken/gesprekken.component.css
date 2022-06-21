@@ -1,0 +1,64 @@
+.conversation-container {
+    width: 100%;
+    max-height: calc(100vh - 40px);
+    grid-area: conversationContainer;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 16px 0 0 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4.9px);
+    -webkit-backdrop-filter: blur(4.9px);
+    border: 1px solid rgba(255, 255, 255, 0.33);
+    border-right: 0;
+}
+
+.top-bar {
+    display: flex;
+    height: 80px;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    background: rgba(255, 255, 255, 0.44);
+    border-radius: 16px 0 0 0;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4.9px);
+    -webkit-backdrop-filter: blur(4.9px);
+    border: 1px solid rgba(255, 255, 255, 0.33);
+    border-right: 1px solid black;
+}
+
+.conversations-main {
+    padding: 15px;
+    height: 100%;
+    max-height: calc(100% - 110px);
+    overflow-y: scroll;
+}
+
+.conversation {
+    background: rgba(255, 255, 255, 0);
+    border-radius: 5px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4.9px);
+    -webkit-backdrop-filter: blur(4.9px);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.conversation-title {
+    font-weight: bold;
+    font-size: 25px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.conversation-preview {
+    font-size: 15px;
+    color: #5a5a5a;
+    cursor: pointer;
+}

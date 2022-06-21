@@ -1,3 +1,25 @@
 p {
   font-family: Lato;
 }
+
+.main-container {
+  height: 100%;
+  width: 100%;
+  max-height: calc(100vh - 40px);
+  max-width: calc(100vw - 40px);
+  overflow: hidden;
+  display: grid;
+  padding: 20px;
+  background-color:#99e9ff;
+  background-image:
+          radial-gradient(at 42% 38%, hsla(165,87%,63%,1) 0px, transparent 50%),
+          radial-gradient(at 25% 33%, hsla(207,71%,62%,1) 0px, transparent 50%),
+          radial-gradient(at 63% 88%, hsla(69,77%,70%,1) 0px, transparent 50%),
+          radial-gradient(at 56% 51%, hsla(146,90%,69%,1) 0px, transparent 50%),
+          radial-gradient(at 36% 81%, hsla(211,68%,78%,1) 0px, transparent 50%),
+          radial-gradient(at 59% 85%, hsla(66,99%,74%,1) 0px, transparent 50%),
+          radial-gradient(at 75% 60%, hsla(323,75%,74%,1) 0px, transparent 50%);
+  grid-template-columns: 400px 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: 'conversationContainer messagesContainer';
+}
