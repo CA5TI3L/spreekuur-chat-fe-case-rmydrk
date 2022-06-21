@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import {Observable} from "rxjs";
+import {Component, Input, OnInit} from '@angular/core';
 import {Gesprek} from "../../chat-api/chat-api-models";
-import {scan} from "rxjs/operators";
-import {ChatApiService} from "../../chat-api/chat-api.service";
+import {Store} from "@ngrx/store";
+import {ChatState} from "../../store/reducers/chat.reducer";
+import {activeGesprek, getGesprekken} from "../../store/actions/chat.actions";
 
 @Component({
   selector: 'app-gesprekken',
@@ -11,17 +11,18 @@ import {ChatApiService} from "../../chat-api/chat-api.service";
 })
 export class GesprekkenComponent implements OnInit {
 
-  constructor(private readonly api: ChatApiService) { }
+  @Input() activeGesprek!: Gesprek;
+  @Input() gesprekken!: Gesprek[];
+  @Input() isLoading: boolean = false;
+
+  constructor(private chatStore: Store<ChatState>) {}
 
   ngOnInit(): void {
+    this.chatStore.dispatch(getGesprekken())
   }
 
-  //lelijke tijdelijke tussen-functie om de gesprekken te groeperen
-  public gesprekken$: Observable<Gesprek[]> = this.api.gesprekken$().pipe(
-      scan((acc: Gesprek[], v: Gesprek) => {
-        acc.push(v);
-        return acc;
-      }, [])
-  );
+  selectGesprek(gesprek: Gesprek): void {
+    this.chatStore.dispatch(activeGesprek({gesprek}))
+  }
 
 }

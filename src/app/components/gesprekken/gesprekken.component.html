@@ -4,13 +4,16 @@
         <h1>Gesprekken</h1>
     </div>
     <div class="conversations-main">
-        <div class="conversation">
+        <div [ngClass]="{'active-tab' : gesprek.id === activeGesprek?.id}" id="{{gesprek.id}}" class="conversation" *ngFor="let gesprek of gesprekken" (click)="selectGesprek(gesprek)">
             <label class="conversation-title">
-                title
+                {{gesprek?.onderwerp}}
             </label>
             <label class="conversation-preview">
-                body
+                topic updated: {{gesprek.aangemaakt | date: 'medium'}}
             </label>
+        </div>
+        <div class="loading-container" *ngIf="isLoading">
+            <img src="assets/loader.svg">
         </div>
     </div>
 </div>

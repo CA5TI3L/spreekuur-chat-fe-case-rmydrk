@@ -1,4 +1,4 @@
 <div class="main-container">
-    <app-gesprekken></app-gesprekken>
-    <app-berichten></app-berichten>
+    <app-gesprekken [gesprekken]="(gesprekken$ | ngrxPush)" [activeGesprek]="(activeGesprek$ | ngrxPush)" [isLoading]="(isLoading$ | ngrxPush)"></app-gesprekken>
+    <app-berichten [berichten]="(berichten$ | ngrxPush)" [activeGesprek]="(activeGesprek$ | ngrxPush)"></app-berichten>
 </div>

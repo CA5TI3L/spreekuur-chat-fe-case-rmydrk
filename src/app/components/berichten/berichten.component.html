@@ -1,30 +1,33 @@
 <div class="messages-Container">
     <div class="top-bar top-bar-glass">
-        <h1 class="message-title">This is my temp title</h1>
+        <h1 class="message-title">{{activeGesprek?.onderwerp}}</h1>
     </div>
     <div class="messages-main">
-        <ul class="chat">
-            <li class="message left">
-                <img class="logo" src="../../../assets/userLogo.png" alt="">
+        <ul class="chat" *ngFor="let bericht of berichten">
+            <li class="message left" *ngIf="bericht.afzenderId !== 0">
+                <img class="logo" src="assets/userLogo.png" alt="">
                 <div>
                     <div class="sender-info-left">
-                        <label>Kevin Terblanche</label>
+                        <label>{{bericht.afzenderNaam}}</label>
                     </div>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                    <p>{{bericht.inhoud}}</p>
                     <div class="time-stamp-left">
-                        <label>14:00 pm</label>
+                        <label>{{bericht.verzonden | date : 'short'}}</label>
                     </div>
                 </div>
             </li>
-            <li class="message right">
-                <img class="logo" src="../../../assets/userLogo.png" alt="">
+            <li class="message right" *ngIf="bericht.afzenderId === 0">
+                <img class="logo" src="assets/userLogo.png" alt="">
                 <div>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                    <p>{{bericht.inhoud}}</p>
                     <div class="time-stamp-right">
-                        <label>14:00 pm</label>
+                        <label>{{bericht.verzonden | date : 'short'}}</label>
                     </div>
                 </div>
             </li>
         </ul>
+        <div class="no-content" *ngIf="!activeGesprek || berichten.length === 0">
+            <img src="assets/noContent.svg">
+        </div>
     </div>
 </div>

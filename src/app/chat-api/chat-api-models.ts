@@ -10,6 +10,7 @@ export interface Bericht {
   afzenderId: number;
   inhoud: string;
   verzonden: Date;
+  afzenderNaam?: string;
 }
 
 export interface Persoon {
